@@ -14,7 +14,6 @@ type CardBuildYourEncounterProps = {
     creatureToggle: number;
     setCreatureToggle: (value: number) => void;
     enemies: number[];
-    addEnemy: (value: number) => void;
     setEnemies: (value: number[]) => void;
     allies: number[];
     setAllies: (value: number[]) => void;
