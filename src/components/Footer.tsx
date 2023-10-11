@@ -51,16 +51,16 @@ class Footer extends Component {
             url: "https://www.patreon.com/DragnaCarta",
             isExternal: true,
           },
-          {
-            name: "Discord",
-            url: "https://discord.gg/curseofstrahd",
-            isExternal: true,
-          },
-          {
-            name: "Reddit",
-            url: "https://www.reddit.com/r/CurseOfStrahd",
-            isExternal: true,
-          }
+          // {
+          //   name: "Discord",
+          //   url: "https://discord.gg/curseofstrahd",
+          //   isExternal: true,
+          // },
+          // {
+          //   name: "Reddit",
+          //   url: "https://www.reddit.com/r/CurseOfStrahd",
+          //   isExternal: true,
+          // }
         ],
       },
     ];
