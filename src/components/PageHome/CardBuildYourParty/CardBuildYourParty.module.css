@@ -11,8 +11,8 @@
 
   .cardTitleContainer {
     display: flex;
-    flex-direction: row;
-    padding: 16px;
+    flex-direction: column;
+    padding: 16px 16px 0 16px;
   }
 
   .reset {
@@ -33,4 +33,13 @@
 
   .textDynamic {
     color: rgba(var(--rgbPink), 0.8);
+  }
+
+  .expandToggle {
+    cursor: pointer;
+  }
+
+  .expandToggle:hover {
+    color: rgba(var(--rgbPink), 1);
+    text-decoration: underline;
   }

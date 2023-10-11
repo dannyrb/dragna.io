@@ -22,8 +22,7 @@ export default function Home() {
   const [creatureToggle, setCreatureToggle] = useState(0);
   const [enemies, setEnemies] = useState<number[]>([]);
   const [allies, setAllies] = useState<number[]>([]);
-
-  const isPartySelected = partySize > 0 && partyAverageLevel > 0;
+  const [isExpanded, setIsExpanded] = useState(true);
 
   //
   const { hpLost, resourcesSpent, encounterDifficulty } = _encounterCalculator.recalculateDifficulty(partySize, partyAverageLevel, enemies, allies);
@@ -53,7 +52,8 @@ export default function Home() {
           <section>
             <Container>
               <CardBuildYourParty
-                isExpanded={isPartySelected}
+                isExpanded={isExpanded}
+                setIsExpanded={setIsExpanded}
                 partySize={partySize}
                 setPartySize={setPartySize}
                 partyAverageLevel={partyAverageLevel}
@@ -93,11 +93,17 @@ export default function Home() {
                   </div>
                   <div style={{ margin: '1rem' }}>
                     <p style={{ fontWeight: '700'}}>HP Loss</p>
-                    <p><DynamicText>{Math.round(hpLost)}</DynamicText></p>
+                    <p>
+                      <DynamicText>{Math.round(hpLost)}</DynamicText>%
+                      of the party&#39;s combined maximum hit points
+                    </p>
                   </div>
                   <div style={{ margin: '1rem' }}>
                     <p style={{ fontWeight: '700'}}>Resources Spent</p>
-                    <p><DynamicText>{Math.round(resourcesSpent)}</DynamicText></p>
+                    <p>
+                      <DynamicText>{Math.round(resourcesSpent)}</DynamicText>%
+                      of the party&#39;s combined daily features and resources
+                    </p>
                   </div>
                 </div>
                 

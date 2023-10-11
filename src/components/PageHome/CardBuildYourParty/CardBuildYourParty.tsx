@@ -9,6 +9,7 @@ import styles from './CardBuildYourParty.module.css';
 
 type CardBuildYourPartyProps = {
     isExpanded: boolean;
+    setIsExpanded: (value: boolean) => void;
     partySize: number;
     setPartySize: (value: number) => void;
     partyAverageLevel: number;
@@ -18,48 +19,71 @@ type CardBuildYourPartyProps = {
 
 function CardBuildYourParty({ 
     isExpanded, 
+    setIsExpanded,
     partySize,
     setPartySize,
     partyAverageLevel, 
     setPartyAverageLevel 
 }: CardBuildYourPartyProps
     ) {
+
+    
     
     return(
         <>
         <div className={styles.cardTitleContainer}>
-            <h2>Build Your Party</h2>
-            <button
-                className={styles.reset}
+            <div 
+                className={isExpanded ? '' : styles.expandToggle}
+                style={{ 
+                    display: 'flex', 
+                    flexDirection: 'row',
+                    alignItems: 'end'
+                }}
                 onClick={() => {
-                    setPartySize(0);
-                    setPartyAverageLevel(0);
+                    if(partyAverageLevel > 0 && partySize > 0) {
+                        setPartyAverageLevel(0);
+                        setPartySize(0);
+                        setIsExpanded(!isExpanded);
+                    }
                 }}
             >
-                <RefreshIcon />
-            </button>
-            {isExpanded && (
-                <div style={{ fontSize: '20px', marginLeft: '32px', marginTop: '4px' }}>
-                    &#8212; <span className={styles.textDynamic}>{partySize}</span> Players at Level <span className={styles.textDynamic}>{partyAverageLevel}</span>
+                <h2>Build Your Party</h2> 
+                <div style={{ marginLeft: '15px' }}>
+                    {!isExpanded && (<span className={styles.textDynamic}>Reset?</span>)}
                 </div>
-            )}
+            </div>
+
+            <div style={{ fontSize: '16px', height: '28px', }}>
+                {!isExpanded && (
+                    <>
+                        <span className={styles.textDynamic}>{partySize}</span> Players at Level 
+                        {' '}<span className={styles.textDynamic}>{partyAverageLevel}</span>
+                    </>
+                )}
+            </div>
         </div>
 
-        <div className={`${styles.cardBody} ${isExpanded ? '' : styles.expanded}`}>
-            <div style={{ margin: '1rem' }}>
+        <div className={`${styles.cardBody} ${isExpanded ? styles.expanded : ''}`}>
+            <div style={{ margin: '0 1rem 1rem 1rem' }}>
                 <RadioGrid 
-                label="Select the number of players in your party."
-                options={PartySizeOptions}
-                onChange={(value) => setPartySize(value)}
-                selectedValue={partySize}
+                    label="Select the number of players in your party."
+                    options={PartySizeOptions}
+                    onChange={(value) => {
+                        setPartySize(value);
+                        if(value > 0 && partyAverageLevel > 0) { setIsExpanded(false ); }
+                    }}
+                    selectedValue={partySize}
                 />
             </div>
             <div style={{ margin: '1rem' }}>
                 <RadioGrid 
-                label="Select your party's average level."
-                options={PartyLevelOptions}
-                onChange={(value) => setPartyAverageLevel(value)}
-                selectedValue={partyAverageLevel}
+                    label="Select your party's average level."
+                    options={PartyLevelOptions}
+                    onChange={(value) => {
+                        setPartyAverageLevel(value);
+                        if(partySize > 0 && value > 0) { setIsExpanded(false ); }
+                    }}
+                    selectedValue={partyAverageLevel}
                 />
             </div>
         </div>
