@@ -1,0 +1,63 @@
+.cardBody {
+    max-height: 0;
+    transition: max-height 0.75s ease-out;
+    overflow: hidden;
+  }
+  
+  .cardBody.expanded {
+    max-height: 500px;
+    transition: max-height 0.95s ease-in;
+  }
+
+  .cardTitleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .reset {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 32px;
+    color: #FFF;
+    border: none;
+    background-color: dodgerblue;
+    cursor: pointer;
+  }
+
+  .reset:hover {
+    background-color: red;
+  }
+
+  .reset:focus, .reset:active {
+    background-color: dodgerblue;
+  }
+
+  .challengeRatingCount {
+    min-width: 32px;
+    text-align: center;
+  }
+  
+  .btnChallengeRating {
+    cursor: pointer;
+    border: none;
+    padding: 0 16px;
+    color: var(--white);
+  }
+  
+  .btnChallengeRating.increment {
+    background: var(--light-blue);
+  }
+  
+  .btnChallengeRating.increment:hover {
+    background: var(--bright-blue);
+  }
+  
+  .btnChallengeRating.decrement {
+    background: var(--light-red);
+  }
+  
+  .btnChallengeRating.decrement:hover {
+    background: var(--bright-red);
+  }
