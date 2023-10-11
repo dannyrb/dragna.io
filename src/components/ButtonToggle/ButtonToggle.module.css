@@ -28,9 +28,16 @@
     -moz-appearance: none;
 }
 
-.option:hover,
-.option:focus {
-    background: var(--button-bg-hover);
+.option.Allies:hover,
+.option.Allies:focus,
+.option.Allies.selected {
+    background: rgba(var(--rgbCyan), 0.8);
+}
+
+.option.Enemies:hover,
+.option.Enemies:focus,
+.option.Enemies.selected {
+    background: rgba(var(--rgbRed), 0.8);
 }
 
 .option:focus {
@@ -40,13 +47,4 @@
 
 .option:active {
     transform: scale(0.99);
-}
-
-.option.selected {
-    background-color: var(--button-bg--active);
-}
-
-.option.selected:hover,
-.option.selected:focus {
-    background: var(--button-bg-hover--active);
 }

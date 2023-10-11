@@ -117,7 +117,11 @@ type EnemiesListProps = {
 }
 
 function EnemiesList({ enemyCrOccurrences, addEnemy, removeEnemy }: EnemiesListProps) {
-    return (
+    if(Object.keys(enemyCrOccurrences).length === 0) {
+      return <></>
+    }  
+  
+  return (
         <>
             <h3 className={styles.enemyTitle}>Enemies:</h3>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -150,7 +154,11 @@ type AlliesListProps = {
 }
 
 function AlliesList({ allyCrOccurrences, addAlly, removeAlly }: AlliesListProps) {
-    return (
+  if(Object.keys(allyCrOccurrences).length === 0) {
+    return <></>
+  }    
+  
+  return (
         <>
             <h3 className={styles.allyTitle}>Allies:</h3>
             <div style={{ display: 'flex', flexDirection: 'column' }}>

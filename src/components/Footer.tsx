@@ -23,6 +23,10 @@ class Footer extends Component {
             url: "https://www.patreon.com/posts/84429238",
             isExternal: true
           },
+          {
+            name: "Challenge Rated",
+            url: "/challenge-rated"
+          }
         ],
       },
       {

@@ -19,7 +19,7 @@ export default function ButtonGrid({ label, options, onClick, selectedValue }: B
         {options.map((option, i) => (
           <button 
             key={i}
-            className={`${styles.option} ${option.value === selectedValue ? styles.selected : ''}`}
+            className={`${styles.option} ${styles[option.displayText]} ${option.value === selectedValue ? styles.selected : ''}`}
             onClick={() => onClick(option.value)}
           >
             {option.displayText}

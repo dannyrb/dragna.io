@@ -10,6 +10,7 @@ import CardBuildYourParty from '@/components/PageHome/CardBuildYourParty/CardBui
 import CardBuildYourEncounter from '@/components/PageHome/CardBuildYourEncounter/CardBuildYourEncounter';
 
 import Theme from '@/layouts/Theme'
+import styles from './challenge-rated.module.css';
 
 
 // const inter = Inter({ subsets: ['latin'] });
@@ -45,8 +46,9 @@ export default function Home() {
       </Head>
 
       <Theme>
-        <main>
-          <Banner />
+        <main style={{ marginTop: '53px'}}>
+          <div style={{ padding: '16px'}}>
+          {/* <Banner /> */}
 
           <section>
             <Container>
@@ -114,8 +116,9 @@ export default function Home() {
           </section>
 
           {/* </Drawer> */}
-
+          </div>
         </main>
+        
       </Theme>
     </>
   )
@@ -127,7 +130,7 @@ type DynamicTextProps = {
 
 function DynamicText({children}: DynamicTextProps) {
   return (
-    <span style={{ color: 'red' }}>
+    <span className={styles.textDynamic}>
       {children}
     </span>
   )
