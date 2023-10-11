@@ -30,3 +30,7 @@
   .reset:hover {
     background-color: rgba(var(--rgbPink), 1);
   }
+
+  .textDynamic {
+    color: rgba(var(--rgbPink), 0.8);
+  }

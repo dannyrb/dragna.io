@@ -38,6 +38,11 @@ function CardBuildYourParty({
             >
                 <RefreshIcon />
             </button>
+            {isExpanded && (
+                <div style={{ fontSize: '20px', marginLeft: '32px', marginTop: '4px' }}>
+                    &#8212; <span className={styles.textDynamic}>{partySize}</span> Players at Level <span className={styles.textDynamic}>{partyAverageLevel}</span>
+                </div>
+            )}
         </div>
 
         <div className={`${styles.cardBody} ${isExpanded ? '' : styles.expanded}`}>
