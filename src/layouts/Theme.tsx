@@ -7,7 +7,7 @@ type ThemeProps = {
 
 export default function Theme({ children }: ThemeProps) {
   return (
-    <div>
+    <div className="purple" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', minHeight: '100vh'}}>
       <Header />
       <div>{children}</div>
       <Footer />

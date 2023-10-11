@@ -12,7 +12,7 @@
   .cardTitleContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    padding: 16px;
   }
 
   .reset {
@@ -22,20 +22,17 @@
     min-width: 32px;
     color: #FFF;
     border: none;
-    background-color: dodgerblue;
+    background-color: rgba(var(--rgbPink), 0.8);
     cursor: pointer;
+    margin-left: 8px;
   }
 
   .reset:hover {
-    background-color: red;
-  }
-
-  .reset:focus, .reset:active {
-    background-color: dodgerblue;
+    background-color: rgba(var(--rgbPink), 1);;
   }
 
   .challengeRatingCount {
-    min-width: 32px;
+    min-width: 48px;
     text-align: center;
   }
   
@@ -47,17 +44,44 @@
   }
   
   .btnChallengeRating.increment {
-    background: var(--light-blue);
+    background: rgba(var(--rgbCyan), 0.8);
   }
   
   .btnChallengeRating.increment:hover {
-    background: var(--bright-blue);
+    background: rgba(var(--rgbCyan), 1);
   }
   
   .btnChallengeRating.decrement {
-    background: var(--light-red);
+    background: rgba(var(--rgbRed), 0.8);
   }
   
   .btnChallengeRating.decrement:hover {
-    background: var(--bright-red);
+    background: rgba(var(--rgbRed), 1);
+  }
+
+  .svgButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 48px;
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+
+
+  h3.enemyTitle {
+    font-size: 20px;
+    color: rgba(var(--rgbRed), 0.8);
+  }
+  
+  h3.allyTitle {
+    font-size: 20px;
+    color: rgba(var(--rgbCyan), 0.8);
+  }
+
+  .crText {
+    font-size: 18px;
+    font-weight: 500;
   }

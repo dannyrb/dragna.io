@@ -3,20 +3,16 @@ import Link from "next/link";
 import malarkey from "malarkey";
 import Topbar from "./Topbar";
 
-interface THeader {
-  malarkey: React.RefObject<HTMLSpanElement>;
-}
-
 class Header extends Component {
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    // this.malarkey = React.createRef();
-  }
+  //   // this.malarkey = React.createRef();
+  // }
 
-  componentDidMount() {
-    // this.startTypewriter();
-  }
+  // componentDidMount() {
+  //   // this.startTypewriter();
+  // }
 
   // startTypewriter() {
   //   malarkey(
@@ -69,31 +65,20 @@ class Header extends Component {
   //     .delete();
   // }
 
-  renderDescription() {
-    return (
-      <h2 className="subtitle">
-        Dark theme for 
-        {/* <span ref={this.malarkey} className="rotating"></span> */}
-      </h2>
-    );
-  }
+  // renderDescription() {
+  //   return (
+  //     <h2 className="subtitle">
+  //       Dark theme for 
+  //       {/* <span ref={this.malarkey} className="rotating"></span> */}
+  //     </h2>
+  //   );
+  // }
 
 
   render() {
     return (
       <div>
         <Topbar />
-        <header className="header">
-          {/* <img
-            className="icon"
-            src={`/static/icons/${this.props.query.icon}`}
-            width={220}
-            height={220}
-            alt={'title'}
-          /> */}
-          <h1 className="title">Dragna.io</h1>
-          {this.renderDescription()}
-        </header>
       </div>
     );
   }

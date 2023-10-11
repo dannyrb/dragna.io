@@ -19,7 +19,7 @@ class Footer extends Component {
         section: "Projects",
         children: [
           {
-            name: "Curse of Strahd Reloaded",
+            name: "CoS Reloaded",
             url: "https://www.patreon.com/posts/84429238",
             isExternal: true
           },

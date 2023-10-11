@@ -1,11 +1,11 @@
 import React from 'react';
 import ButtonGrid from '@/components/ButtonGrid/ButtonGrid';
 import ButtonToggle from '@/components/ButtonToggle/ButtonToggle';
-import Card from '@/components/Card/Card'
-import CardTitle from '@/components/CardTitle/CardTitle';
 import ChallengeRatingOptions from '@/lib/ChallengeRatingOptions';
 import CreatureToggleOptions from '@/lib/CreatureToggleOptions';
 import RefreshIcon from '@/components/RefreshIcon/RefreshIcon';
+import IconPlus from '@/components/IconPlus';
+import IconMinus from '@/components/IconMinus';
 
 import styles from './CardBuildYourEncounter.module.css'
 
@@ -64,51 +64,49 @@ function CardBuildYourEncounter({
     }, {});
     
     return(
-        <Card>
-            <CardTitle>
-                <div className={styles.cardTitleContainer}>
-                    <h2>Build Your Encounter</h2>
-                    <button
-                        className={styles.reset}
-                        onClick={() => {
-                            setEnemies([]);
-                            setAllies([]);
-                        }}
-                    >
-                        <RefreshIcon />
-                    </button>
-                </div>
-            </CardTitle>
-          <div style={{ margin: '1rem' }}>
-            <ButtonToggle 
-              label="Are you adding allies or enemies?"
-              options={CreatureToggleOptions}
-              selectedValue={creatureToggle}
-              onClick={(value: number) => setCreatureToggle(value)}
-            />
-          </div>
-          <div style={{ margin: '1rem' }}>
-            <ButtonGrid 
-              label="Add creatures that will fight in this encounter by selecting their Challenge Ratings."
-              options={ChallengeRatingOptions}
-              onClick={(value: number) => addCreature(value)}
-              mode={creatureToggle === 0 ? 'red' : 'blue'}
-            />
-          </div>
+      <>
+        <div className={styles.cardTitleContainer}>
+            <h2>Build Your Encounter</h2>
+            <button
+                className={styles.reset}
+                onClick={() => {
+                    setEnemies([]);
+                    setAllies([]);
+                }}
+            >
+                <RefreshIcon />
+            </button>
+        </div>
+        <div style={{ margin: '1rem' }}>
+          <ButtonToggle 
+            label="Are you adding allies or enemies?"
+            options={CreatureToggleOptions}
+            selectedValue={creatureToggle}
+            onClick={(value: number) => setCreatureToggle(value)}
+          />
+        </div>
+        <div style={{ margin: '1rem' }}>
+          <ButtonGrid 
+            label="Add creatures that will fight in this encounter by selecting their Challenge Ratings."
+            options={ChallengeRatingOptions}
+            onClick={(value: number) => addCreature(value)}
+            mode={creatureToggle === 0 ? 'red' : 'blue'}
+          />
+        </div>
 
-          <div style={{ margin: '1rem' }}>
-            <EnemiesList
-                enemyCrOccurrences={enemyCrOccurrences}
-                addEnemy={addEnemy}
-                removeEnemy={removeEnemy}
-            />
-            <AlliesList
-                allyCrOccurrences={allyCrOccurrences}
-                addAlly={addAlly}
-                removeAlly={removeAlly}
-            />
-          </div>
-        </Card>
+        <div style={{ margin: '1rem' }}>
+          <EnemiesList
+              enemyCrOccurrences={enemyCrOccurrences}
+              addEnemy={addEnemy}
+              removeEnemy={removeEnemy}
+          />
+          <AlliesList
+              allyCrOccurrences={allyCrOccurrences}
+              addAlly={addAlly}
+              removeAlly={removeAlly}
+          />
+        </div>
+      </>
   );
 }
 
@@ -121,7 +119,7 @@ type EnemiesListProps = {
 function EnemiesList({ enemyCrOccurrences, addEnemy, removeEnemy }: EnemiesListProps) {
     return (
         <>
-            <p style={{ fontWeight: '700'}}>Enemies:</p>
+            <h3 className={styles.enemyTitle}>Enemies:</h3>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
             {Object.keys(enemyCrOccurrences)
                 .map(x => parseFloat(x))
@@ -154,7 +152,7 @@ type AlliesListProps = {
 function AlliesList({ allyCrOccurrences, addAlly, removeAlly }: AlliesListProps) {
     return (
         <>
-            <p style={{ fontWeight: '700'}}>Allies:</p>
+            <h3 className={styles.allyTitle}>Allies:</h3>
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               {Object.keys(allyCrOccurrences)
                 .map(x => parseFloat(x))
@@ -190,11 +188,10 @@ type CreatureListItemProps = {
       <div 
         style={{ 
           display: 'flex',
-          background: 'white',
-          padding: '0.5rem',
-          margin: '4px 0'
+          padding: '0 0.5rem',
+          margin: '2px 4px'
         }}>
-        <h2>CR: { challengeRating }</h2>
+        <p className={styles.crText}>CR: { challengeRating }</p>
         <div
           style={{
             display: 'flex',
@@ -205,10 +202,10 @@ type CreatureListItemProps = {
           }}
         >
           <button 
-            className={`${styles.btnChallengeRating} ${styles.decrement}`}
+            className={`${styles.svgButton} ${styles.btnChallengeRating} ${styles.decrement}`}
             onClick={() => decreaseCount(challengeRating)}
           >
-            -
+            <IconMinus />
           </button>
           <span
             className={styles.challengeRatingCount}
@@ -216,10 +213,10 @@ type CreatureListItemProps = {
             { count }
           </span>
           <button 
-            className={`${styles.btnChallengeRating} ${styles.increment}`}
+            className={`${styles.svgButton} ${styles.btnChallengeRating} ${styles.increment}`}
             onClick={() => increaseCount(challengeRating)}
             >
-            +
+            <IconPlus />
           </button>
         </div>
       </div>

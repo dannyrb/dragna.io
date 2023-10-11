@@ -24,6 +24,16 @@ function PageHome() {
         </Head>
 
         <Theme>
+          <header className="header">
+            {/* <img
+              className="icon"
+              src={`/static/icons/${this.props.query.icon}`}
+              width={220}
+              height={220}
+              alt={'title'}
+            /> */}
+            <h1 className="title">Dragna.io</h1>
+          </header>
         </Theme>
       </div>
     );

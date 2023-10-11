@@ -12,7 +12,7 @@
   .cardTitleContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    padding: 16px;
   }
 
   .reset {
@@ -22,10 +22,11 @@
     min-width: 32px;
     color: #FFF;
     border: none;
-    background-color: dodgerblue;
+    background-color: rgba(var(--rgbPink), 0.8);
     cursor: pointer;
+    margin-left: 8px;
   }
 
   .reset:hover {
-    background-color: red;
+    background-color: rgba(var(--rgbPink), 1);
   }

@@ -1,16 +1,15 @@
 import React, { useState} from 'react';
 import Head from 'next/head'
 // import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 
 import Banner from '@/components/Banner/Banner'
-import Card from '@/components/Card/Card'
-import CardTitle from '@/components/CardTitle/CardTitle';
 import Container from '@/components/Container/Container';
 import Drawer from '@/components/Drawer/Drawer';
 import EncounterCalculator from '@/lib/EncounterCalculator';
 import CardBuildYourParty from '@/components/PageHome/CardBuildYourParty/CardBuildYourParty';
 import CardBuildYourEncounter from '@/components/PageHome/CardBuildYourEncounter/CardBuildYourEncounter';
+
+import Theme from '@/layouts/Theme'
 
 
 // const inter = Inter({ subsets: ['latin'] });
@@ -44,67 +43,80 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main}`}>
-        <Banner />
 
-        <Container>
-          <CardBuildYourParty
-            isExpanded={isPartySelected}
-            partySize={partySize}
-            setPartySize={setPartySize}
-            partyAverageLevel={partyAverageLevel}
-            setPartyAverageLevel={setPartyAverageLevel}
-          />
+      <Theme>
+        <main>
+          <Banner />
 
-          <CardBuildYourEncounter
-            addCreature={addCreature}
-            creatureToggle={creatureToggle}
-            setCreatureToggle={setCreatureToggle}
-            enemies={enemies}
-            setEnemies={setEnemies}
-            allies={allies}
-            setAllies={setAllies}
-          />
+          <section>
+            <Container>
+              <CardBuildYourParty
+                isExpanded={isPartySelected}
+                partySize={partySize}
+                setPartySize={setPartySize}
+                partyAverageLevel={partyAverageLevel}
+                setPartyAverageLevel={setPartyAverageLevel}
+              />
+            </Container>
+          </section>
 
-        {/* <Drawer> */}
-        {/* Card 3 - Encounter Summary */}
-        <Card>
-          <CardTitle>
-            <h2>Encounter Summary</h2>
-          </CardTitle>
-          <div style={{ display: 'flex', flexDirection: 'row'}}>
+          <section>
+            <Container>
+              <CardBuildYourEncounter
+                addCreature={addCreature}
+                creatureToggle={creatureToggle}
+                setCreatureToggle={setCreatureToggle}
+                enemies={enemies}
+                setEnemies={setEnemies}
+                allies={allies}
+                setAllies={setAllies}
+              />
+            </Container>
+          </section>
 
-          <div style={{ width: '50%'}}>
-            <div style={{ margin: '1rem' }}>
-              <p style={{ fontWeight: '700'}}>Difficulty</p>
-              <p><DynamicText>{encounterDifficulty}</DynamicText></p>
-            </div>
-            <div style={{ margin: '1rem' }}>
-              <p style={{ fontWeight: '700'}}>HP Loss</p>
-              <p><DynamicText>{Math.round(hpLost)}</DynamicText></p>
-            </div>
-            <div style={{ margin: '1rem' }}>
-              <p style={{ fontWeight: '700'}}>Resources Spent</p>
-              <p><DynamicText>{Math.round(resourcesSpent)}</DynamicText></p>
-            </div>
-          </div>
-          
-            
-            {/* Left */}
-            <div style={{ width: '50%'}}>
-              <div style={{ margin: '1rem' }}>
-                <p style={{ fontWeight: '700'}}>Party:</p>
-                <p><DynamicText>{partySize}</DynamicText> PCs at Level <DynamicText>{partyAverageLevel}</DynamicText></p>
-              </div>
-            </div>
 
-          </div>
-        </Card>
-        </Container>
+          <section>
+            <Container>
+              {/* <Drawer> */}
+              {/* Card 3 - Encounter Summary */}
+                <div>
+                  <h2>Encounter Summary</h2>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'row'}}>
 
-        {/* </Drawer> */}
+                <div style={{ width: '50%'}}>
+                  <div style={{ margin: '1rem' }}>
+                    <p style={{ fontWeight: '700'}}>Difficulty</p>
+                    <p><DynamicText>{encounterDifficulty}</DynamicText></p>
+                  </div>
+                  <div style={{ margin: '1rem' }}>
+                    <p style={{ fontWeight: '700'}}>HP Loss</p>
+                    <p><DynamicText>{Math.round(hpLost)}</DynamicText></p>
+                  </div>
+                  <div style={{ margin: '1rem' }}>
+                    <p style={{ fontWeight: '700'}}>Resources Spent</p>
+                    <p><DynamicText>{Math.round(resourcesSpent)}</DynamicText></p>
+                  </div>
+                </div>
+                
+                  
+                  {/* Left */}
+                  <div style={{ width: '50%'}}>
+                    <div style={{ margin: '1rem' }}>
+                      <p style={{ fontWeight: '700'}}>Party:</p>
+                      <p><DynamicText>{partySize}</DynamicText> PCs at Level <DynamicText>{partyAverageLevel}</DynamicText></p>
+                    </div>
+                  </div>
 
-      </main>
+                </div>
+              {/* </Drawer> */}
+            </Container>
+          </section>
+
+          {/* </Drawer> */}
+
+        </main>
+      </Theme>
     </>
   )
 }

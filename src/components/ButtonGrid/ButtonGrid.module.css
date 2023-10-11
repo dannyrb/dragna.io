@@ -12,7 +12,7 @@
 }
 
 .option {
-    background: var(--button-bg);
+    background-color: rgba(var(--rgbBackground));
     flex: 1 1 18%;
 
     border: none;
@@ -26,11 +26,6 @@
                 transform 150ms ease;
     -webkit-appearance: none;
     -moz-appearance: none;
-}
-
-.option:hover,
-.option:focus {
-    background: var(--button-bg-hover);
 }
 
 .option:focus {
@@ -51,18 +46,11 @@
     background: var(--button-bg-hover--active);
 }
 
-.red .option {
-    background-color: var(--light-red);
-}
-
 .red .option:hover {
-    background-color: var(--bright-red);
+    background-color: rgba(var(--rgbRed), 1);
 }
 
-.blue .option {
-    background-color: var(--light-blue);
-}
 
 .blue .option:hover {
-    background-color: var(--bright-blue);
+    background-color: rgba(var(--rgbCyan), 1);
 }
