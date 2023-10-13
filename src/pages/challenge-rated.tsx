@@ -114,15 +114,19 @@ export default function Home() {
                   
                   {/* Left */}
                   <div style={{ width: '50%'}}>
-                    <button>Start Over</button>
+                    {/* <button>Start Over</button>
                     
                     <div>
                       <div>Share this encounter:</div>
                       <div style={{}}>
-                        <div></div>
+                        <input 
+                          type="text" 
+                          value={'https://dragna.io/challenge-rated?'} 
+                        />
                         <button></button>
+                        
                       </div>
-                    </div>
+                    </div> */}
                   </div>
 
                 </div>
