@@ -7,6 +7,8 @@ import RefreshIcon from '@/components/RefreshIcon/RefreshIcon';
 import IconPlus from '@/components/IconPlus';
 import IconMinus from '@/components/IconMinus';
 
+import Fraction from 'fraction.js';
+
 import styles from './CardBuildYourEncounter.module.css'
 
 type CardBuildYourEncounterProps = {
@@ -131,6 +133,7 @@ function EnemiesList({ enemyCrOccurrences, addEnemy, removeEnemy }: EnemiesListP
                 .map((cr) => 
                 {
                 const crCount = enemyCrOccurrences[cr];
+  
                 return (
                     <CreatureListItem
                         key={cr}
@@ -192,6 +195,9 @@ type CreatureListItemProps = {
   }
   
   function CreatureListItem({ challengeRating, count, increaseCount, decreaseCount }: CreatureListItemProps) {
+    
+    const crDisplay = new Fraction(challengeRating).toFraction(true);
+    
     return (
       <div 
         style={{ 
@@ -199,7 +205,7 @@ type CreatureListItemProps = {
           padding: '0 0.5rem',
           margin: '2px 4px'
         }}>
-        <p className={styles.crText}>CR: { challengeRating }</p>
+        <p className={styles.crText}>CR: { crDisplay }</p>
         <div
           style={{
             display: 'flex',
