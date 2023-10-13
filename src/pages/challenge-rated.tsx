@@ -81,12 +81,16 @@ export default function Home() {
             <Container>
               {/* <Drawer> */}
               {/* Card 3 - Encounter Summary */}
-                <div>
+                <div style={{ margin: '1rem' }}>
                   <h2>Encounter Summary</h2>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'row'}}>
 
                 <div style={{ width: '50%'}}>
+                  <div style={{ margin: '.75rem' }}>
+                    <p style={{ fontWeight: '700'}}>Party:</p>
+                    <p><DynamicText>{partySize}</DynamicText> PCs at Level <DynamicText>{partyAverageLevel}</DynamicText></p>
+                  </div>
                   <div style={{ margin: '1rem' }}>
                     <p style={{ fontWeight: '700'}}>Difficulty</p>
                     <p><DynamicText>{encounterDifficulty}</DynamicText></p>
@@ -110,9 +114,14 @@ export default function Home() {
                   
                   {/* Left */}
                   <div style={{ width: '50%'}}>
-                    <div style={{ margin: '1rem' }}>
-                      <p style={{ fontWeight: '700'}}>Party:</p>
-                      <p><DynamicText>{partySize}</DynamicText> PCs at Level <DynamicText>{partyAverageLevel}</DynamicText></p>
+                    <button>Start Over</button>
+                    
+                    <div>
+                      <div>Share this encounter:</div>
+                      <div style={{}}>
+                        <div></div>
+                        <button></button>
+                      </div>
                     </div>
                   </div>
 

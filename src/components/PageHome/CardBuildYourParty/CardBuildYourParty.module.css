@@ -1,3 +1,12 @@
+.sometimesGhost {
+  transition: opacity 0.25s ease-out;
+  opacity: 1;
+}
+
+.sometimesGhost.isInvisible {
+  opacity: 0;
+}
+
 .cardBody {
     max-height: 0;
     transition: max-height 0.75s ease-out;

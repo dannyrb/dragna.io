@@ -27,13 +27,11 @@ function CardBuildYourParty({
 }: CardBuildYourPartyProps
     ) {
 
-    
-    
     return(
         <>
         <div className={styles.cardTitleContainer}>
             <div 
-                className={isExpanded ? '' : styles.expandToggle}
+                className={`${styles.animateVisibility} ${isExpanded ? '' : styles.isCollapsed}`}
                 style={{ 
                     display: 'flex', 
                     flexDirection: 'row',
@@ -47,19 +45,25 @@ function CardBuildYourParty({
                     }
                 }}
             >
-                <h2>Build Your Party</h2> 
-                <div style={{ marginLeft: '15px' }}>
-                    {!isExpanded && (<span className={styles.textDynamic}>Reset?</span>)}
+                <h2 className={isExpanded ? '' : styles.expandToggle}>Build Your Party</h2> 
+                <div
+                    className={`${styles.sometimesGhost} ${isExpanded ? styles.isInvisible : ''}`} 
+                    style={{ marginLeft: '15px' }
+                }>
+                    <span 
+                        className={`${styles.textDynamic} ${isExpanded ? '' : styles.expandToggle}`}
+                    >
+                        Reset?
+                    </span>
                 </div>
             </div>
 
-            <div style={{ fontSize: '16px', height: '28px', }}>
-                {!isExpanded && (
-                    <>
-                        <span className={styles.textDynamic}>{partySize}</span> Players at Level 
-                        {' '}<span className={styles.textDynamic}>{partyAverageLevel}</span>
-                    </>
-                )}
+            <div  
+                className={`${styles.sometimesGhost} ${isExpanded ? styles.isInvisible : ''}`}
+                style={{ fontSize: '16px', height: '28px', }}
+            >
+                <span className={styles.textDynamic}>{partySize}</span> Players at Level 
+                {' '}<span className={styles.textDynamic}>{partyAverageLevel}</span>
             </div>
         </div>
 
