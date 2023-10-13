@@ -84,9 +84,9 @@ export default function Home() {
                 <div style={{ margin: '1rem' }}>
                   <h2>Encounter Summary</h2>
                 </div>
-                <div style={{ display: 'flex', flexDirection: 'row'}}>
+                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
 
-                <div style={{ width: '50%'}}>
+                <div style={{ flexGrow: 1 }}>
                   <div style={{ margin: '.75rem' }}>
                     <p style={{ fontWeight: '700'}}>Party:</p>
                     <p><DynamicText>{partySize}</DynamicText> PCs at Level <DynamicText>{partyAverageLevel}</DynamicText></p>
@@ -113,7 +113,7 @@ export default function Home() {
                 
                   
                   {/* Left */}
-                  <div style={{ width: '50%'}}>
+                  <div style={{ flexGrow: 1 }}>
                     {/* <button>Start Over</button>
                     
                     <div>
