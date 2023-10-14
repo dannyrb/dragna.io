@@ -1,5 +1,6 @@
-import React, { useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import Head from 'next/head'
+import queryString from 'query-string';
 // import { Inter } from 'next/font/google'
 
 import Banner from '@/components/Banner/Banner'
@@ -11,18 +12,101 @@ import CardBuildYourEncounter from '@/components/PageHome/CardBuildYourEncounter
 
 import Theme from '@/layouts/Theme'
 import styles from './challenge-rated.module.css';
+import { GetServerSideProps } from 'next';
 
 
 // const inter = Inter({ subsets: ['latin'] });
 const _encounterCalculator = new EncounterCalculator();
 
-export default function Home() {
-  const [partySize, setPartySize] = useState(0);
-  const [partyAverageLevel, setPartyAverageLevel] = useState(0);
+// This gets called on every request
+export const getServerSideProps: GetServerSideProps = async(context) => {
+  const search = context.query
+  const parsedAllies = 
+    search.allies !== undefined && !Array.isArray(search.allies) 
+      ? search.allies.split(',') 
+      : [];
+  const parsedEnemies = 
+    search.enemies !== undefined && !Array.isArray(search.enemies) 
+      ? search.enemies.split(',') 
+      : [];
+
+  let allies: number[] = [];
+  let enemies: number[] = [];
+
+  allies = parsedAllies
+    .filter((cr): cr is string => typeof cr === "string")
+    .map((cr: string) => parseFloat(cr as string));
+
+  enemies = parsedEnemies
+    .filter((cr): cr is string => typeof cr === "string")
+    .map((cr: string) => parseFloat(cr as string));
+
+
+  const queryParams = {
+    partySize: search.partySize !== undefined ? Number(search.partySize) : 0,
+    partyAverageLevel: search.partyAverageLevel !== undefined ? Number(search.partyAverageLevel) : 0,
+    enemies,
+    allies,
+  }
+
+  return { props: { 
+    queryParams,
+    initialIsExpanded: !(queryParams.partySize > 0 && queryParams.partyAverageLevel > 0)
+  } }
+}
+
+type ssrProps = {
+  queryParams: {
+    partySize: number;
+    partyAverageLevel: number;
+    enemies: number[];
+    allies: number[];
+  },
+  initialIsExpanded: boolean
+} 
+
+export default function Home({ queryParams, initialIsExpanded }: ssrProps) {
+  const [partySize, setPartySize] = useState(queryParams.partySize);
+  const [partyAverageLevel, setPartyAverageLevel] = useState(queryParams.partyAverageLevel);
   const [creatureToggle, setCreatureToggle] = useState(0);
-  const [enemies, setEnemies] = useState<number[]>([]);
-  const [allies, setAllies] = useState<number[]>([]);
-  const [isExpanded, setIsExpanded] = useState(true);
+  const [enemies, setEnemies] = useState<number[]>(queryParams.enemies);
+  const [allies, setAllies] = useState<number[]>(queryParams.allies);
+  const [isExpanded, setIsExpanded] = useState(initialIsExpanded);
+
+  useEffect(() => {
+    // if(typeof window === 'undefined') return;
+
+    // Update URL
+    if(partySize > 0 || partyAverageLevel > 0 || enemies.length > 0 || allies.length > 0) {
+
+      const { protocol, host, pathname } = window.location;
+      const paramString = queryString.stringify({
+        partySize: partySize === 0 ? undefined : partySize,
+        partyAverageLevel: partyAverageLevel === 0 ? undefined : partyAverageLevel,
+        enemies,
+        allies,
+      }, {arrayFormat: 'comma'});
+
+      const url = new URL(
+        `${protocol}${host}${pathname}?${paramString}`
+      );
+
+      history.replaceState(null, '', url);
+    } else {
+      const { protocol, host, pathname } = window.location;
+      const url = new URL(
+        `${protocol}${host}${pathname}`
+      );
+
+      history.replaceState(null, '', url);
+    }
+  }, [partySize, partyAverageLevel, enemies, allies]);
+
+  useEffect(() => {
+    if(queryParams.partySize > 0 && queryParams.partyAverageLevel > 0) {
+      setIsExpanded(false);
+    }
+  }, []);
 
   //
   const { hpLost, resourcesSpent, encounterDifficulty } = _encounterCalculator.recalculateDifficulty(partySize, partyAverageLevel, enemies, allies);

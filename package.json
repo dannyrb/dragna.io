@@ -13,6 +13,7 @@
     "fraction.js": "^4.3.7",
     "malarkey": "^2.0.2",
     "next": "^13.5.4",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sharp": "^0.32.6",

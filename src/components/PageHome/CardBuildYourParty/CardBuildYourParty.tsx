@@ -84,6 +84,7 @@ function CardBuildYourParty({
                     label="Select your party's average level."
                     options={PartyLevelOptions}
                     onChange={(value) => {
+                        console.log('setting...', value)
                         setPartyAverageLevel(value);
                         if(partySize > 0 && value > 0) { setIsExpanded(false ); }
                     }}
