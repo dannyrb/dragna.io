@@ -109,7 +109,7 @@ export default function Home({ queryParams, initialIsExpanded }: ssrProps) {
   }, []);
 
   //
-  const { hpLost, resourcesSpent, encounterDifficulty } = _encounterCalculator.recalculateDifficulty(partySize, partyAverageLevel, enemies, allies);
+  const { hpLost, resourcesSpent, encounterDifficulty } = _encounterCalculator.recalculateDifficulty(partyAverageLevel, partySize, enemies, allies);
 
   function addCreature(challengeRating: number) {
     if (creatureToggle === 0) {
