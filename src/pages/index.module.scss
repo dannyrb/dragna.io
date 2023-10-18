@@ -42,6 +42,20 @@
     z-index: 2;
 }
 
+@media screen and (max-width: 72rem) {
+    .hero .castle {
+        width: 200%;
+        left: -80%;
+    }
+}
+
+@media screen and (max-width: 48rem) {
+    .hero .castle {
+        width: 400%;
+        left: -250%;
+    }
+}
+
 .hero .particles {
     position: absolute;
     inset: 0;
