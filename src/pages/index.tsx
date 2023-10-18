@@ -6,8 +6,7 @@ import styles from './index.module.scss';
 
 function PageHome() {
     const title = `Dragna.io - D&D 5e Encounter Calculator`;
-    const description =
-      "Dracula is a color scheme for code editors and terminal emulators such as Vim, Notepad++, iTerm, VSCode, Terminal.app, ZSH, and much more.";
+    const description = "";
 
     return (
       <div>
@@ -41,7 +40,7 @@ function PageHome() {
           </header>
           <main>
             <section className={styles.home}>
-              
+
             </section>
 
           </main>
