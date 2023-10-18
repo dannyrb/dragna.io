@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
-import styles from './Theme.module.css';
+import styles from './theme.module.css';
 
 type ThemeProps = {
     children: React.ReactNode;
