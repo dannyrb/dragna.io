@@ -1,11 +1,13 @@
 .fixed {
     position: fixed;
     width: 100%;
-    z-index: 1;
+    z-index: 100;
   }
   
   .topbar {
     width: 100%;
+    /*  #282a36 */
+    /* rgb(14, 13, 17) */
     background: #282a36;
     height: 50px;
     padding: 5px;

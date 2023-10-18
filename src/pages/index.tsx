@@ -2,6 +2,8 @@ import Head from "next/head";
 import React from "react";
 import Theme from "../layouts/Theme";
 
+import styles from './index.module.scss';
+
 function PageHome() {
     const title = `Dragna.io - D&D 5e Encounter Calculator`;
     const description =
@@ -24,19 +26,36 @@ function PageHome() {
         </Head>
 
         <Theme>
-          <header className="header">
-            {/* <img
+          <header className={styles.hero}>
+            <div className={styles.particles}>
+              <div className={styles.stars}></div>
+              <div className={styles.stars2}></div>
+              <div className={styles.stars3}></div>
+            </div>
+            <div className={styles.container}>
+              <div className={styles.content}>
+                <h1 className="title">Dragna.io</h1>
+              </div>
+            </div>
+            <div className={styles.castle}></div>
+          </header>
+          <main>
+            <section className={styles.home}>
+              
+            </section>
+
+          </main>
+        </Theme>
+      </div>
+    );
+  }
+
+              {/* <img
               className="icon"
               src={`/static/icons/${this.props.query.icon}`}
               width={220}
               height={220}
               alt={'title'}
             /> */}
-            <h1 className="title">Dragna.io</h1>
-          </header>
-        </Theme>
-      </div>
-    );
-  }
 
 export default PageHome;

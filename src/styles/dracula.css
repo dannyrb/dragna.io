@@ -64,15 +64,6 @@
     min-height: 36px;
   }
   
-  .header {
-    padding: 140px 0 80px;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-  
   .gh-buttons {
     margin-top: 25px;
     height: 33px;
