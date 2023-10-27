@@ -19,7 +19,7 @@ class Topbar extends Component {
               <Link href="/shop">Shop</Link>
             </li>
             <li>
-              <Link className={styles.cta} href="https://www.patreon.com/DragnaCarta/membership">Support Dragna</Link>
+              <Link className={styles.cta} href="https://www.patreon.com/DragnaCarta/membership">Support the Creator</Link>
             </li>
           </ul>
         </nav>
