@@ -68,15 +68,16 @@ class EncounterCalculator {
   *
   * @type {Array.<Object>}
   */
-  static RatioScaleLookup = [
-    { ratio: 5, multiplier: 1.67 },
-    { ratio: 2.5, multiplier: 1.33 },
-    { ratio: 1.5, multiplier: 1.25 },
-    { ratio: 1, multiplier: 1 },
-    { ratio: 0.67, multiplier: 0.8 },
-    { ratio: 0.4, multiplier: 0.67 },
-    { ratio: 0.2, multiplier: 0.5 }
-  ];
+    static RatioScaleLookup = [
+        { ratio: 6, multiplier: 1.4 }, /* 3/14/24: I zero'd out the other ratios to remove overaggressive Power Decay scaling. I added this additional entry to handle cases in which E[DPR] OHKOs the target. This is a placeholder until I can do more precise calculations regarding power decay. -Dragna */
+        { ratio: 5, multiplier: 1 },
+        { ratio: 2.5, multiplier: 1 },
+        { ratio: 1.5, multiplier: 1 },
+        { ratio: 1, multiplier: 1 },
+        { ratio: 0.67, multiplier: 1 },
+        { ratio: 0.4, multiplier: 1 },
+        { ratio: 0.2, multiplier: 1 }
+    ];
   
   /**
   * Lookup table mapping player levels to their corresponding Power values.
