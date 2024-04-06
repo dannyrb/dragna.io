@@ -5,7 +5,7 @@ import Theme from "../layouts/Theme";
 import styles from './index.module.scss';
 
 function PageHome() {
-    const title = `Dragna.io - D&D 5e Encounter Calculator`;
+    const title = `Dragna.io - DragnaCarta's Workspace`;
     const description = "";
 
     return (
