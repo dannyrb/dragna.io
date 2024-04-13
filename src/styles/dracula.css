@@ -11,9 +11,9 @@
     --rgbSelection: 68, 71, 90;
     --rgbComment: 98, 114, 164;
   
-    --title: "Abril Text";
-    --body: "Source Sans Pro";
-    --mono: "Fira Code";
+    --title: "Montserrat", sans-serif;
+    --body: "Open Sans", sans-serif;
+    --mono: "Open Sans", sans-serif;
   
     --alpha: 0.7;
   }
@@ -53,7 +53,7 @@
     font-size: 72px;
     text-align: center;
     font-family: var(--title);
-    font-weight: 700;
+    font-weight: 400;
     height: 100px;
   }
   
@@ -79,7 +79,7 @@
   .topbar-title {
     margin-left: 10px;
     font-family: var(--title);
-    font-weight: 700;
+    font-weight: 400;
     display: inline-block;
     color: rgb(var(--rgbForeground));
     font-size: 24px;
@@ -1865,64 +1865,17 @@
      ========================================================================== */
   
   @font-face {
-    font-family: "Abril Text";
-    src: url("/static/fonts/AbrilText-Bold.woff2") format("woff2"),
-      url("/static/fonts/AbrilText-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Source Sans Pro";
-    src: url("/static/fonts/SourceSansPro-Light.woff2") format("woff2"),
-      url("/static/fonts/SourceSansPro-Light.woff") format("woff");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Source Sans Pro";
-    src: url("/static/fonts/SourceSansPro-Regular.woff2") format("woff2"),
-      url("/static/fonts/SourceSansPro-Regular.woff") format("woff");
+    font-family: "Montserrat", sans-serif;
+    src: url("/static/montserrat/Montserrat-Regular.ttf") format("ttf");
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
-    font-family: "Source Sans Pro";
-    src: url("/static/fonts/SourceSansPro-Bold.woff2") format("woff2"),
-      url("/static/fonts/SourceSansPro-Bold.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Fira Code";
-    src: url("/static/fonts/FiraCode-Regular.woff2") format("woff2"),
-      url("/static/fonts/FiraCode-Regular.woff") format("woff");
+    font-family: "Open Sans", sans-serif;
+    src: url("/static/opensans/OpenSans-Medium.ttf") format("ttf");
     font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Fira Code";
-    src: url("/static/fonts/FiraCode-Medium.woff2") format("woff2"),
-      url("/static/fonts/FiraCode-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-  }
-  
-  @font-face {
-    font-family: "Fira Code";
-    src: url("/static/fonts/FiraCode-Bold.woff2") format("woff2"),
-      url("/static/fonts/FiraCode-Bold.woff") format("woff");
-    font-weight: 700;
     font-style: normal;
     font-display: swap;
   }

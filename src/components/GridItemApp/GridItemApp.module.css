@@ -1,14 +1,19 @@
 .app {
-    width: 20rem;
+    width: 25rem;
+    min-height: 12rem;
     padding: 2rem;
     display: flex;
     align-items: center;
     gap: 2rem;
-    border-radius: var(--radius-02);
-    border: 0.125rem solid var(--background-color-02);
+    border-radius: 0.75rem;
+    border: 0.125rem solid rgb(29, 27, 34);
     text-decoration: none;
-    background-color: var(--background-color-02);
+    background-color: rgb(29, 27, 34);
     transition: background-color .32s ease-in-out;
+}
+
+.app:hover {
+    background-color: rgb(14, 13, 17);
 }
 
 .app .icon {
@@ -34,18 +39,18 @@
 }
 
 .app .content .title {
-    font-size: var(--text-02);
+    font-size: 16px;
 
     text-align: left;
 
     margin: 0;
     line-height: inherit;
-    font-family: var(--font-satoshi);
+    /* font-family: var(--font-satoshi); */
     font-weight: 700;
-    color: var(--neutral-01);
+    color: rgb(255, 255, 255);
 }
 
 .app .content .text {
-    color: var(--neutral-04);
+    color: rgb(86, 81, 103);
     text-align: left;
 }

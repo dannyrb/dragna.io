@@ -3,10 +3,38 @@ import React from "react";
 import Theme from "../layouts/Theme";
 
 import styles from './index.module.scss';
+import GridItemApp from "@/components/GridItemApp/GridItemApp";
 
 function PageHome() {
-    const title = `Dragna.io - D&D 5e Encounter Calculator`;
-    const description = "";
+    const title = `Dragna.io - Hub for all things DragnaCarta`;
+    const description = "D&D 5e Tools, Resources, and more.";
+
+    const callToActions = [
+      {
+        publicImagePath: '/haunted-house.svg',
+        title: 'Curse of Strahd: Reloaded',
+        description: 'Where the magic happens',
+        target: 'https://www.strahdreloaded.com/'
+      },
+      {
+        publicImagePath: '/haunted-house.svg',
+        title: 'Challenge Rated',
+        description: 'D&D 5e Encounter Calculator',
+        target: '/challenge-rated'
+      },
+      {
+        publicImagePath: '/haunted-house.svg',
+        title: 'Patreon',
+        description: 'Access resources before anyone else, while supporting the creator',
+        target: 'https://www.patreon.com/DragnaCarta'
+      },
+      {
+        publicImagePath: '/fangs.svg',
+        title: 'Twice Bitten',
+        description: 'A rules-as-written (RAW) playing of Curse of Strahd',
+        target: 'https://www.youtube.com/playlist?list=PL4R3TunxDm1q9UbfJddRGv7pmMsALnzZu'
+      }
+    ]
 
     return (
       <div>
@@ -39,9 +67,25 @@ function PageHome() {
             <div className={styles.castle}></div>
           </header>
           <main>
-            <section className={styles.home}>
+            <div className={styles.home}>
+              {/* MAIN CONTENT */}
+              <section className={`${styles.gridContainer} ${styles.contentContainer}`}>
+                <div className={styles.titleWrapper}>
+                  <h2>Discover</h2>
+                  <span>Something, something, something from the mind of DragnaCarta</span>
+                </div>
 
-            </section>
+                <ul className={styles.grid}>
+                  {callToActions.map((item, i) => (
+                    <li key={i}>
+                      <GridItemApp {...item} />
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            </div>
+
+
 
           </main>
         </Theme>

@@ -20,7 +20,7 @@ class Footer extends Component {
         children: [
           {
             name: "CoS Reloaded",
-            url: "https://www.patreon.com/posts/84429238",
+            url: "https://strahdreloaded.com/",
             isExternal: true
           },
           {
